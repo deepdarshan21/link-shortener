@@ -10,6 +10,8 @@ const Typography = styled(TypographyBase)({
     color: (props) => props.color,
     textTransform: (props) => (props.toUpper ? "uppercase" : "none"),
     margin: (props) => props.margin,
+    fontWeight: (props) => props.fontWeight,
+    textAlign: (props) => props.align,
     "&:hover": {
         color: (props) => props.hover && (props.hoverColor ? props.hoverColor : "black"),
         cursor: (props) => (props.hover ? "pointer" : "auto"),
