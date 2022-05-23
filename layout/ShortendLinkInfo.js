@@ -16,7 +16,7 @@ const ShortendLinkInfo = (props) => {
         <>
             <div
                 style={{
-                    background: "orange",
+                    background: "white",
                     margin: "10px 20px",
                     padding: "3px 25px",
                     borderRadius: "5px",

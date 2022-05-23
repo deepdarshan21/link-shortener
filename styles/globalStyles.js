@@ -6,5 +6,6 @@ export default createGlobalStyle`
     // margin-top: 5vh;
     margin: 0;
     padding: 0;
+    background: linear-gradient(180deg, #fff 72%, #F0F1F6 28%);
   }
 `;
