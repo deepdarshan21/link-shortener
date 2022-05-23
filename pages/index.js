@@ -6,8 +6,37 @@ import Input from "../components/Input";
 import theme from "../styles/theme";
 import People from "../assets/people-working.png";
 import Meteor from "../assets/Meteor.png";
+import { useState } from "react";
+import axios from "axios";
 
 export default function Home() {
+    const [record, updateRecord] = useState([]);
+    const [url, setUrl] = useState("");
+
+    const handleShortLinkClick = (e) => {
+        e.preventDefault();
+        if (url === "") {
+            alert("Please enter the link...");
+            return;
+        }
+        axios
+            .post("https://api.shrtco.de/v2/shorten", null, {
+                params: {
+                    url,
+                },
+            })
+            .then((res) =>
+                updateRecord((old) => [
+                    ...old,
+                    { link: url, shortLink: res.data.result.short_link },
+                ])
+            )
+            .catch((err) => {
+                alert("Error");
+            });
+        setUrl("");
+    };
+
     return (
         <>
             <Navbar />
@@ -37,7 +66,12 @@ export default function Home() {
                         display: "flex",
                     }}
                 >
-                    <Input type="url" placeholder="Shorten a link here..." />
+                    <Input
+                        type="url"
+                        placeholder="Shorten a link here..."
+                        value={url}
+                        onChange={(e) => setUrl(e.target.value)}
+                    />
                     <span
                         style={{
                             margin: "auto",
@@ -51,15 +85,15 @@ export default function Home() {
                             fontWeight="700"
                             padding="10px 24px"
                             hoverBackgroundColor={theme.color.secondry.Red}
+                            onClick={handleShortLinkClick}
                         >
                             Shorten it!
                         </Button>
                     </span>
                 </div>
-                <ShortendLinkInfo link="https://www/google.com" shortLink="https://www.bit.ly" />
-                <ShortendLinkInfo link="https://www/google.com" shortLink="https://www.bit.ly" />
-                <ShortendLinkInfo link="https://www/google.com" shortLink="https://www.bit.ly" />
-                <ShortendLinkInfo link="https://www/google.com" shortLink="https://www.bit.ly" />
+                {record.map((item) => (
+                    <ShortendLinkInfo link={item.link} shortLink={item.shortLink} />
+                ))}
             </div>
             <Typography
                 component="h5"
