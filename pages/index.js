@@ -9,6 +9,7 @@ import Meteor from "../assets/Meteor.png";
 import { useState } from "react";
 import axios from "axios";
 import UpperFooter from "../layout/UpperFooter";
+import Footer from "../layout/Footer";
 
 export default function Home() {
     const [record, updateRecord] = useState([]);
@@ -118,6 +119,7 @@ export default function Home() {
                 our advanced statistics dashboard.
             </Typography>
             <UpperFooter />
+            <Footer />
         </>
     );
 }
