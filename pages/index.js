@@ -8,6 +8,7 @@ import People from "../assets/people-working.png";
 import Meteor from "../assets/Meteor.png";
 import { useState } from "react";
 import axios from "axios";
+import UpperFooter from "../layout/UpperFooter";
 
 export default function Home() {
     const [record, updateRecord] = useState([]);
@@ -116,6 +117,7 @@ export default function Home() {
                 <br />
                 our advanced statistics dashboard.
             </Typography>
+            <UpperFooter />
         </>
     );
 }
