@@ -3,8 +3,8 @@ import theme from "../styles/theme";
 
 const Navbar = (props) => {
     return (
-        <header style={{ display: "inline-flex" }}>
-            <Typography component="h4" fontSize="26px">
+        <header style={{ display: "inline-flex", margin: "25px 8vw" }}>
+            <Typography component="h4" fontSize="26px" margin="10px 0">
                 Shortly
             </Typography>
             <Typography component="h6" margin="auto 16px auto 32px" color={theme.color.Gray} hover>

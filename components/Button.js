@@ -20,7 +20,7 @@ const Button = styled("button")(
         variant({
             variants: {
                 rect: {
-                    borderRadius: props.fontSize ? parseFloat(props.fontSize) / 3 : "10px",
+                    borderRadius: props.fontSize ? parseFloat(props.fontSize) / 3 : "5px",
                 },
                 oval: {
                     borderRadius: props.fontSize ? props.fontSize : "16px",
